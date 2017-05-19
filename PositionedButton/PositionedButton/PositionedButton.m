@@ -10,21 +10,51 @@
 
 @implementation PositionedButton
 
++ (instancetype)buttonWithType:(UIButtonType)buttonType
+{
+    PositionedButton *button = [super buttonWithType:buttonType];
+    if (!button) {
+        return nil;
+    }
+    
+    [button initData];
+    
+    return  button;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    
+    [self initData];
+    
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        [self initData];
+    if (!self) {
+        return nil;
     }
+    
+    [self initData];
+    
     return self;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self initData];
+    if (!self) {
+        return nil;
     }
+    
+    [self initData];
+    
     return self;
 }
 
